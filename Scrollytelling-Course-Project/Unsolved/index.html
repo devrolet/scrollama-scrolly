@@ -75,8 +75,7 @@
     figure img {
       /* position:absolute allows us to place the images on top of one another, which allows for smooth transitioning*/
       position:absolute;
-      /*@TODO - fill in the necessary property that properly placed the figure*/
-      
+      left: 0;
       /* ease-out transition creates a smooth change for the image from completely see-through, to fully visible. */
       -webkit-transition: opacity 0.3s ease-out;
       -moz-transition: opacity 0.3s ease-out;
@@ -104,7 +103,7 @@
       /*OPTIONAL: creates space around the text*/
       padding: 1rem;
       /*OPTIONAL: can be set based on preferences*/
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       /*OPTIONAL: can be set based on preferences*/
       background-color: #f3f3f3;
       /*OPTIONAL: creates a solid box around the text*/
@@ -174,37 +173,39 @@
 
           <!-- Message #1 -->
           <div class="step" data-scrollama-index="0">
-            <p>#1</p>
+            <p>Let's see which parts of the world are answering the call to make the pursuit of happiness the national mission.
+            <br><br>In darker blue countries, happiness is increasing quickly. Darker red countries have rapidly falling happiness.</p>
           </div>
           
           <!-- Message #2 -->
           <div class="step" data-scrollama-index="1">
-            <p>#2</p>
+            <p>Africa seems to be home to some of the extremes.<br><br> The nations where happiness is increasing most quickly, and unfortunately several nations where happiness is losing the most ground, are located in Africa.</p>
           </div>
 
           <!-- Message #3 -->
           <div class="step" data-scrollama-index="2">
-            <p>#3</p>
+            <p>Generally speaking, West Africa and Southern Africa show a stark contrast in the direction national happiness is moving.</p>
           </div>
 
           <!-- Message #4 -->
           <div class="step" data-scrollama-index="3">
-            <p>#4</p>
+            <p>Rwanda, Tanzania, Malawi, Zambia, Zimbabwe, and Botswana show some of the most unfavorable trends in happiness among the world's nations.
+            <br><br>These Southern African countries show between -1.8% and -2.9% change in happiness per year.</p>
           </div>
 
           <!-- Message #5 -->
           <div class="step" data-scrollama-index="4">
-            <p>#5</p>
+            <p>However, some West African countries are leading the world in improving happiness. Among this large block of 11 neighboring nations, all show a rapid rise in happiness.</p>
           </div>
 
           <!-- Message #6 -->
           <div class="step" data-scrollama-index="5">
-            <p>#6</p>
+            <p>Within this group of nations, Senegal, Burkina Faso, Congo (Brazzaville), Cameroon, Togo, and Benin show gains in happiness of more than 2% per year.</p>
           </div>
 
           <!-- Message #7 -->
           <div class="step" data-scrollama-index="6">
-            <p>#7</p>
+            <p>In particular, the nations Togo and Benin show the fastest increase in national happiness in the entire world, averaging 4.2% and 4.0% per year respectively.<br><br>According to the World Happiness Report, Benin was ranked second-to-last, or 155th, in the world in 2012. In 2020, Benin ranked ahead of China by 7 spots, at 86th.</p>
           </div>
 
         </article>
@@ -217,7 +218,7 @@
     
     </main>
 
-    <p style="text-align : center"><br><a href="https://www.thrum.engineering/scrollytelling">Learn More About Scrollytelling</a><br></p>
+    <!-- <p style="text-align : center"><br><a href="https://www.thrum.engineering/scrollytelling">Learn More About Scrollytelling</a><br></p> -->
   <!-- Scrollama javaScript -->
   <script src="https://unpkg.com/intersection-observer"></script>
   <script src="https://unpkg.com/scrollama"></script>
@@ -244,17 +245,20 @@
     // Create a scrollama object.
     var myScrollama = scrollama();
 
-    // @TODO: Set the stepH, figureHeight, and figureMarginTop constants
+    const figureHeight = window.innerHeight * 0.8
+    const figureMarginTop = (window.innerHeight - figureHeight) / 2
+    const stepH = Math.floor(window.innerHeight * 1.8);
 
     // generic window resize listener event
     function handleResize() {
       
       console.log("handling resize")
 
-      // @TODO: Use `d3.json` to update height of step elements
+      steps.style('height', `${stepH}px`)
 
-      // @TODO: Update the height, and top figure elements
-
+      figure
+        .style('height', `${figureHeight}px`)
+        .style('top', `${figureMarginTop}px`)
       // Tell scrollama to update new element dimensions
       myScrollama.resize();
 
@@ -277,32 +281,81 @@
           break;
 
         case 1:
-          // @TODO: Set image to 2nd version
+          imgV1.style("opacity", "0")
+          imgV2.style("opacity", "1")
+          imgV3.style("opacity", "0")
+          imgV4.style("opacity", "0")
+          imgV5.style("opacity", "0")
+          imgV6.style("opacity", "0")
+          imgV7.style("opacity", "0")
+          imgV8.style("opacity", "0")
           break;
 
         case 2:
-          // @TODO: Set image to 3rd version
+          imgV1.style("opacity", "0")
+          imgV2.style("opacity", "0")
+          imgV3.style("opacity", "1")
+          imgV4.style("opacity", "0")
+          imgV5.style("opacity", "0")
+          imgV6.style("opacity", "0")
+          imgV7.style("opacity", "0")
+          imgV8.style("opacity", "0")
           break;
 
         case 3:
-          // @TODO: Set image to 4th version
+          imgV1.style("opacity", "0")
+          imgV2.style("opacity", "0")
+          imgV3.style("opacity", "0")
+          imgV4.style("opacity", "1")
+          imgV5.style("opacity", "0")
+          imgV6.style("opacity", "0")
+          imgV7.style("opacity", "0")
+          imgV8.style("opacity", "0")
           break;
 
         case 4:
-          // @TODO: Set image to 5th version
+          imgV1.style("opacity", "0")
+          imgV2.style("opacity", "0")
+          imgV3.style("opacity", "0")
+          imgV4.style("opacity", "0")
+          imgV5.style("opacity", "1")
+          imgV6.style("opacity", "0")
+          imgV7.style("opacity", "0")
+          imgV8.style("opacity", "0")
           break;
 
         case 5:
-          // @TODO: Set image to 6th version
+          imgV1.style("opacity", "0")
+          imgV2.style("opacity", "0")
+          imgV3.style("opacity", "0")
+          imgV4.style("opacity", "0")
+          imgV5.style("opacity", "0")
+          imgV6.style("opacity", "1")
+          imgV7.style("opacity", "0")
+          imgV8.style("opacity", "0")
           break;
 
         case 6:
-        // @TODO: Set image to 7th version
-        break;
+          imgV1.style("opacity", "0")
+          imgV2.style("opacity", "0")
+          imgV3.style("opacity", "0")
+          imgV4.style("opacity", "0")
+          imgV5.style("opacity", "0")
+          imgV6.style("opacity", "0")
+          imgV7.style("opacity", "1")
+          imgV8.style("opacity", "0")
+          break;
 
         case 7:
-        // @TODO: Set image to 8th version
-        break;
+          imgV1.style("opacity", "0")
+          imgV2.style("opacity", "0")
+          imgV3.style("opacity", "0")
+          imgV4.style("opacity", "0")
+          imgV5.style("opacity", "0")
+          imgV6.style("opacity", "0")
+          imgV7.style("opacity", "0")
+          imgV8.style("opacity", "1")
+          break;
 
         default:
           // do nothing
@@ -322,8 +375,12 @@
 
       handleResize();
 
-      // @TODO: Create the myScrollama.setup() function
-        
+      myScrollama
+        .setup({
+          step: '.step',
+          offset: Math.floor(window.innerHeight) * 1.3 + "px",
+          debug: false
+        }).onStepEnter(handleStepChange)  
       // setup resize event
       window.addEventListener('resize', handleResize);
     }
